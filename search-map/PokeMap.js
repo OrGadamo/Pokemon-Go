@@ -2,7 +2,9 @@ let map;
 let userCoords;
 let locationCircle;
 let markerArray = [];
-let pokemonSpawn;
+let pokemonSpawn = [];
+const pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
+//new pokemon class
 class Pokemon {
   constructor(name, front_pic, back_pic) {
     this.name = name;
@@ -10,27 +12,42 @@ class Pokemon {
     this.back_pic = back_pic;
   }
 }
-window.onload = () => {};
+
+//Start page by search for user location
 function startMap() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getLocation);
+    navigator.geolocation.getCurrentPosition(initMap);
   } else {
     console.log("error");
   }
 }
-function getLocation(position) {
+
+//get location and initialize map,user marker
+function initMap(position) {
   userCoords = position.coords;
-  initMap(position.coords);
-}
-function initMap(coords) {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: coords.latitude, lng: coords.longitude },
-    zoom: 16,
+    center: { lat: userCoords.latitude, lng: userCoords.longitude },
+    zoom: 17,
   });
   new google.maps.Marker({
-    position: { lat: coords.latitude, lng: coords.longitude },
+    position: { lat: userCoords.latitude, lng: userCoords.longitude },
     map: map,
   });
+  createSonarCircle();
+  createRadarBtnOnMap();
+}
+//create radar button
+function createRadarBtnOnMap() {
+  let btn = document.createElement("button");
+  btn.className = "btn btn-danger";
+  btn.id = "radar_btn";
+  btn.innerText = "Press To Scan";
+  btn.addEventListener("click", main);
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(btn);
+}
+
+//create sonar circle
+function createSonarCircle() {
   locationCircle = new google.maps.Circle({
     strokeColor: "#FF0000",
     strokeOpacity: 0,
@@ -39,11 +56,21 @@ function initMap(coords) {
     fillOpacity: 0,
     map,
     center: map.center,
-    radius: 1000,
+    radius: 200,
   });
-  console.log(locationCircle);
 }
-//מקבל מיקום רנדומאלי ומידע על הפוקימון ומציג מרקר חדש
+
+//send a random coords inside radar circle
+function getRandomPokemonCoords() {
+  var bounds = locationCircle.getBounds();
+  var sw = bounds.getSouthWest();
+  var ne = bounds.getNorthEast();
+  var ptLat = Math.random() * (ne.lat() - sw.lat()) + sw.lat();
+  var ptLng = Math.random() * (ne.lng() - sw.lng()) + sw.lng();
+  return { lat: ptLat, lng: ptLng };
+}
+
+// get coords and pokemon and spawn on map
 function setPokeMarker(coords, pokemon) {
   markerArray.push(
     new google.maps.Marker({
@@ -53,10 +80,10 @@ function setPokeMarker(coords, pokemon) {
       animation: google.maps.Animation.BOUNCE,
     })
   );
-  let infowindow = new google.maps.InfoWindow({
-    content: getPokemonInfo(pokemon),
-  });
   let index = markerArray.length - 1;
+  let infowindow = new google.maps.InfoWindow({
+    content: getPokemonInfo(pokemon, index),
+  });
   markerArray[index].addListener("click", () => {
     infowindow.open({
       anchor: markerArray[index],
@@ -65,22 +92,7 @@ function setPokeMarker(coords, pokemon) {
     });
   });
 }
-//מחזיר מיקום רנדומאלי
-function getRandomPokemonCoords() {
-  var bounds = locationCircle.getBounds();
-  var sw = bounds.getSouthWest();
-  var ne = bounds.getNorthEast();
-  var ptLat = Math.random() * (ne.lat() - sw.lat()) + sw.lat();
-  var ptLng = Math.random() * (ne.lng() - sw.lng()) + sw.lng();
-  return { lat: ptLat, lng: ptLng };
-}
-function getClassPokemonArray() {
-  let pokeArr = [];
-  pokemonSpawn.forEach((pokemon) => {
-    pokeArr.push(switchPokemonToClass(pokemon));
-  });
-  pokemonSpawn = pokeArr;
-}
+//get pokemon and change it to Pokemon type
 function switchPokemonToClass(pokemon) {
   return new Pokemon(
     pokemon.name,
@@ -88,33 +100,46 @@ function switchPokemonToClass(pokemon) {
     pokemon.sprites.back_default
   );
 }
-//מחזיר אובייקט של פוקימון
+
+//change spwan array to pokemon type
+function getClassPokemonArray() {
+  let pokeArr = [];
+  pokemonSpawn.forEach((pokemon) => {
+    pokeArr.push(switchPokemonToClass(pokemon));
+  });
+  pokemonSpawn = pokeArr;
+}
+
+//API call to poke api
 async function getPokemonById(id) {
   try {
-    return await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) =>
-      res.json()
-    );
+    return await fetch(`${pokeAPI}${id}`).then((res) => res.json());
   } catch (error) {
     console.log(error);
   }
 }
-//מחזיר מערך רנדומאלי של אובייקטי פוקימונים
+
+//create Random length of pokemon array
 function setRandomPokemonsArrMarkers() {
-  let num_of_pokemons = Math.floor(Math.random() * 11) + 5;
-  let pokemonsArr = [];
+  let num_of_pokemons = Math.floor(Math.random() * 5) + 3;
   for (let i = 0; i < num_of_pokemons; i++) {
-    getPokemonById(Math.floor(Math.random() * 100) + 1).then((res) => {
-      pokemonsArr.push(res);
-      if (pokemonsArr.length == num_of_pokemons) {
-        console.log(pokemonsArr[0]);
-        setPokemonsArrMarkers(pokemonsArr);
-      }
-    });
+    createRandomPokemonsArray(num_of_pokemons);
   }
 }
-//מחזיר את תיבת המידע של הפוקימון
-function getPokemonInfo(pokemon) {
-  return ` <div class="container">
+
+//create entry in pokemon array
+function createRandomPokemonsArray(pokeNum) {
+  getPokemonById(Math.floor(Math.random() * 100) + 1).then((res) => {
+    pokemonSpawn.push(res);
+    if (pokemonSpawn.length == pokeNum) {
+      setPokemonsArrMarkers();
+    }
+  });
+}
+
+//send a pokemon infobox
+function getPokemonInfo(pokemon, index) {
+  return ` <div class="container-fluid">
   <div class="row d-flex justify-content-center">
     <div class="card col-11">
       <div
@@ -138,21 +163,23 @@ function getPokemonInfo(pokemon) {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
-        <a href="#!" class="btn btn-primary">Capture</a>
+        <a href="#!" onclick="changeToScene(${index})" class="btn btn-primary">Capture</a>
       </div>
     </div>
   </div>
 </div>`;
 }
-function setPokemonsArrMarkers(pokeArr) {
-  pokemonSpawn = pokeArr;
+
+//send pokemon array to set markers
+function setPokemonsArrMarkers() {
   getClassPokemonArray();
   pokemonSpawn.forEach((pokemon) => {
     let coords = getRandomPokemonCoords();
     setPokeMarker(coords, pokemon);
   });
 }
-function main() {
+//scanner animation
+function scanRadarAnimation() {
   let fillHelper = 0;
   let strokeHelper = 0;
   let intervalId = setInterval(() => {
@@ -167,12 +194,33 @@ function main() {
     fillHelper = fillHelper + 0.07;
     strokeHelper = strokeHelper + 0.16;
   }, 40);
+
   setTimeout(() => {
     clearInterval(intervalId);
     locationCircle.setOptions({
       fillOpacity: 0,
       strokeOpacity: 0,
     });
+  }, 3000);
+}
+
+//start pokemon search
+function main() {
+  scanRadarAnimation();
+  document.getElementById("radar_btn").disabled = true;
+  setTimeout(() => {
+    document.getElementById("radar_btn").disabled = false;
+  }, 600000);
+  setTimeout(() => {
     setRandomPokemonsArrMarkers();
   }, 3000);
+}
+
+function changeToScene(index) {
+  deleteMarker(index);
+  document.getElementById("map_scene").style.display = "none";
+  mainCaptureScene(pokemonSpawn[index]);
+}
+function deleteMarker(index) {
+  markerArray[index].setMap(null);
 }

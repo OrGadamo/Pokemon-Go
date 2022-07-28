@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>capture</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="capture.css" />
+  </head>
+  <body>
+    <div class="container mt-5 position-relative" id="battle_con">
+      <div id="overlay">
+        <div
+          id="capture_con"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <img
+            id="capture_pokeball"
+            src="../images/final_closeball.png"
+            alt=""
+          />
+          <div id="pokemon_capturedCon">
+            <img id="pokemon_capturedImg" src="/images/fail.png" alt="" />
+          </div>
+          <div id="continue_div" class="p-4">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="continueScene()"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="spawn_div" class="position-absolute top-50 start-50">
+        <img id="spawn_poke" src="" alt="" />
+      </div>
+      <div
+        id="text_box_con"
+        class="position-absolute bottom-0 start-0 p-4 d-flex flex-column justify-content-center"
+      >
+        <h2 id="text_box" class="p-2"></h2>
+        <div class="p-2">
+          <h5 onclick="throwAnimation()" class="press">
+            <i class="arrow_right"></i> Capture
+          </h5>
+          <h5 class="press"><i class="arrow_right"></i> Pass</h5>
+        </div>
+      </div>
+      <div
+        class="position-absolute end-0 bottom-0 p-4 d-flex justify-content-end align-items-center"
+      >
+        <img id="pokemon_ball_img" src="../images/pokemon_ball.png" alt="" />
+        <h1 id="tries"></h1>
+      </div>
+      <img
+        class="position-absolute bottom-0 end-0"
+        id="catch_pokemon_ball"
+        src="../images/pokemon_ball.png"
+        alt=""
+      />
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
+    ></script>
+    <script src="capture.js"></script>
+  </body>
+</html>

@@ -17,17 +17,79 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="capture-scene/capture.css" />
     <link rel="stylesheet" href="PokeMap.css" />
   </head>
   <body>
-    <div>My Map</div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div id="map" class="col-10"></div>
+    <div id="change_mapscene">
+      <div id="map_scene" class="container mt-5">
+        <div id="map_capture_div" class="row justify-content-center">
+          <div id="map" class="col-10"></div>
+        </div>
+      </div>
+      <div class="container mt-5 position-relative" id="battle_con">
+        <div id="overlay">
+          <div
+            id="capture_con"
+            class="d-flex justify-content-center align-items-center"
+          >
+            <img
+              id="capture_pokeball"
+              src="../images/final_closeball.png"
+              alt=""
+            />
+            <div id="pokemon_capturedCon">
+              <img id="pokemon_capturedImg" src="/images/fail.png" alt="" />
+            </div>
+            <div id="continue_div" class="p-4">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="continueScene()"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="spawn_div" class="position-absolute top-50 start-50">
+          <img id="spawn_poke" src="" alt="" />
+        </div>
+        <div
+          id="text_box_con"
+          class="position-absolute bottom-0 start-0 p-4 d-flex flex-column justify-content-center"
+        >
+          <h2 id="text_box" class="p-2"></h2>
+          <div class="p-2">
+            <h5 id="capture_btn" onclick="throwAnimation()" class="press">
+              <i class="arrow_right"></i> Capture
+            </h5>
+            <h5 onclick="returnToMapScene()" class="press">
+              <i class="arrow_right"></i> Pass
+            </h5>
+          </div>
+        </div>
+        <div
+          class="position-absolute end-0 bottom-0 p-4 d-flex justify-content-end align-items-center"
+        >
+          <img id="pokemon_ball_img" src="../images/pokemon_ball.png" alt="" />
+          <h1 id="tries"></h1>
+        </div>
+        <img
+          class="position-absolute bottom-0 end-0"
+          id="catch_pokemon_ball"
+          src="../images/pokemon_ball.png"
+          alt=""
+        />
       </div>
     </div>
-    <button onclick="main()">Start</button>
-    <script src="PokeMap.js"></script>
+
     <script
       async
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd80_I-UlItHowJKF5ylwA3J64s2NF3Wg&callback=startMap"
@@ -36,5 +98,7 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
     ></script>
+    <script src="capture-scene/capture.js"></script>
+    <script src="PokeMap.js"></script>
   </body>
 </html>

@@ -1,0 +1,69 @@
+#battle_con {
+  background-image: url("https://wallpaperaccess.com/full/1579890.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+  display: none;
+}
+#text_box_con {
+  width: 50%;
+  height: 25vh;
+  background-color: #000000bd;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+#pokemon_ball_img {
+  width: 25%;
+}
+#tries {
+  color: black;
+  font-size: 5vh;
+}
+#catch_pokemon_ball {
+  width: 10%;
+  display: none;
+}
+#overlay {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000c4;
+  z-index: 2;
+  cursor: pointer;
+}
+#capture_con {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#pokemon_capturedCon {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100px, -100px);
+}
+#captureTxt {
+  color: white;
+}
+#continue_div {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.arrow_right {
+  border: solid white;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+.press {
+  cursor: pointer;
+}
