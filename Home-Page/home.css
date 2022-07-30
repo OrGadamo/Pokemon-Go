@@ -1,0 +1,57 @@
+body {
+  background-image: url("../images/backgrounds/AzurLane.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#myHeader {
+  height: 10vh;
+}
+.nav_links {
+  font-size: 2.5vh;
+}
+.nav_btn {
+  font-size: 1.5vh;
+}
+.home_show {
+  height: 50vh;
+  width: 90%;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+#water_poke {
+  background-image: url("../images/backgrounds/BlueSkies.jpg");
+}
+#fire_poke {
+  background-image: url("../images/backgrounds/BurningOrange.jpg");
+}
+#grass_poke {
+  background-image: url("../images/backgrounds/Quepal.jpg");
+}
+#normal_poke {
+  background-image: url("../images/backgrounds/MidnightCity.jpg");
+}
+footer {
+  font-size: 2vh;
+}
+video {
+  width: 100%;
+}
+#news_div {
+  width: 70%;
+}
+.news_card {
+  height: 30vh;
+}
+.article_news {
+  color: white;
+  font-weight: 900;
+}
+#sign_div {
+  width: 90%;
+  background-color: white;
+}
+#icon_stats {
+  width: 70%;
+}
