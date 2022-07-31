@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pokemon-Go</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -17,40 +17,323 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="../images/pokemon_ball.png" />
+    <link rel="stylesheet" href="Home-Page/home.css" />
+    <link rel="stylesheet" href="contact-page/contact.css" />
+    <link rel="stylesheet" href="about-page/about.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="card col-10">
-          <div
-            class="bg-image hover-overlay ripple"
-            data-mdb-ripple-color="light"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp"
-              class="img-fluid"
-            />
-            <a href="#!">
-              <div
-                class="mask"
-                style="background-color: rgba(251, 251, 251, 0.15)"
-              ></div>
-            </a>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#!" class="btn btn-primary">Button</a>
+    <!-- sign up overlay -->
+    <div id="overlay">
+      <div
+        class="container-fluid h-100 d-flex justify-content-center align-items-center"
+      >
+        <div id="signup_con">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-xl-4 position-relative">
+                <button
+                  onclick="closeSignUp()"
+                  type="button"
+                  class="btn-close position-absolute top-0 start-0"
+                  aria-label="Close"
+                ></button>
+                <img
+                  src="../images/sign_up.jpeg"
+                  alt="Trendy Pants and Shoes"
+                  class="img-fluid rounded-start"
+                />
+              </div>
+              <div class="col-xl-8">
+                <div class="card-body p-5">
+                  <h1 class="display-1 text-center">Sign-Up</h1>
+                  <form onsubmit="submitForm(event)">
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="text" id="f_name" class="form-control" />
+                          <label class="form-label" for="f_name"
+                            >First name</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="text" id="l_name" class="form-control" />
+                          <label class="form-label" for="l_name"
+                            >Last name</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input
+                        type="email"
+                        id="sign_email"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="email"
+                        >Email address</label
+                      >
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="Password">Password</label>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block mb-4"
+                    >
+                      Sign up
+                    </button>
+                    <div class="text-center">
+                      <p>or sign up with:</p>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-facebook-f"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-google"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-twitter"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-github"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- header -->
+    <header>
+      <nav id="myHeader" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand me-2"
+            onclick="loadPhase1Pages('home',event)"
+            href="#"
+          >
+            <img
+              src="icons/pokeIcon.png"
+              height="150"
+              loading="lazy"
+              style="margin-top: -1px"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link nav_links"
+                  onclick="loadPhase1Pages('home',event)"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav_links"
+                  onclick="loadPhase1Pages('about',event)"
+                  href="#"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav_links"
+                  onclick="loadPhase1Pages('contact',event)"
+                  href="#"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+            <div id="login_btncol" class="d-flex align-items-center">
+              <button
+                onclick="openSignUp()"
+                type="button"
+                class="nav_btn btn btn-lg btn-link px-3 me-2"
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                onclick="openSignUp()"
+                class="nav_btn btn btn-lg btn-primary me-3"
+              >
+                Sign up for free
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- changer main -->
+    <main id="changer_main"></main>
+    <!-- footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <span class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </span>
+          <span class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </span>
+          <span class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </span>
+          <a
+            href="https://www.instagram.com/orgadamo/"
+            target="_blank"
+            class="me-4 text-reset"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/or-gadamo-3798b1236/"
+            target="_blank"
+            class="me-4 text-reset"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="https://github.com/OrGadamo"
+            target="_blank"
+            class="me-4 text-reset"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Pokemon-Go
+              </h4>
+              <p>Hope you enjoy our site.</p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Pokemon</h4>
+              <p>
+                <a
+                  href="https://www.pokemon.com/us/"
+                  target="_blank"
+                  class="text-reset"
+                  >Official Site</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://en.wikipedia.org/wiki/Pok%C3%A9mon"
+                  target="_blank"
+                  class="text-reset"
+                  >Poke Wiki</a
+                >
+              </p>
+              <p>
+                <a
+                  href="https://pokemon.fandom.com/wiki/Pok%C3%A9mon_Wiki"
+                  target="_blank"
+                  class="text-reset"
+                  >Pokemon fandom</a
+                >
+              </p>
+              <p>
+                <a onclick="openSignUp(event)" class="text-reset">Sign-up</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Useful links</h4>
+              <p>
+                <a onclick="loadPhase1Pages('home',event)" class="text-reset"
+                  >Home</a
+                >
+              </p>
+              <p>
+                <a onclick="loadPhase1Pages('about',event)" class="text-reset"
+                  >About</a
+                >
+              </p>
+              <p>
+                <a onclick="loadPhase1Pages('contact',event)" class="text-reset"
+                  >Contact</a
+                >
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Contact</h4>
+              <p><i class="fas fa-home me-3"></i> Lod, Tech Career, Israel</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                OGpok@gmail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
+          >Pokemon-Go</a
+        >
+      </div>
+    </footer>
+    <!-- scripts -->
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
     ></script>
+    <script src="Home-Page/home.js"></script>
+    <script src="contact-page/contact.js"></script>
+    <script src="about-page/about.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>

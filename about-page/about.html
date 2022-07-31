@@ -4,9 +4,252 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>About</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="../images/pokemon_ball.png" />
     <link rel="stylesheet" href="about.css" />
   </head>
-  <body></body>
-  <script src="about.js"></script>
+  <body>
+    <header>
+      <nav id="myHeader" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand me-2" href="#">
+            <img
+              src="../icons/pokeIcon.png"
+              height="150"
+              loading="lazy"
+              style="margin-top: -1px"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link nav_links" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav_links" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav_links" href="#">Contact</a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-center">
+              <button
+                type="button"
+                class="nav_btn btn btn-lg btn-link px-3 me-2"
+              >
+                Login
+              </button>
+              <button type="button" class="nav_btn btn btn-lg btn-primary me-3">
+                Sign up for free
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h1 class="display-1 text-center mt-5">About Us</h1>
+      <hr class="divider-horizontal-blurry" />
+      <div
+        class="container-fluid my-5 d-flex justify-content-center position-relative"
+      >
+        <div class="size_div row">
+          <div class="col-12 d-flex justify-content-center">
+            <img
+              class="img-fluid rounded shadow-5-strong"
+              src="../images/about_img.jpeg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <h1 class="display-1 text-center mt-5">Our Company</h1>
+      <hr class="divider-horizontal-blurry" />
+      <div class="container-fluid my-5 d-flex justify-content-center">
+        <div class="size_div row rounded shadow-4-strong">
+          <div class="col-12 col-lg-6 px-0 bg-light">
+            <div class="p-4 d-flex flex-column justify-content-around h-100">
+              <h3 class="display-3">
+                "Even though you’re growing up, you should never stop having
+                fun.”<strong>– Nina Dobrev</strong>
+              </h3>
+              <h4>
+                Pokemon-Go Founder is Or Gadamo, the compony founded for Tech
+                Career Project and been successfull ever since.
+              </h4>
+              <h3>Our Moto is:</h3>
+              <h2><strong>Never Stop Having Fun</strong></h2>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6 px-0">
+            <img
+              id="img_about"
+              src="https://latestgamestories.com/wp-content/uploads/2022/05/How-many-Pokemon-are-there-in-2022-All-types-and.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <h1 class="display-1 text-center mt-5">Our Principles</h1>
+      <hr class="divider-horizontal-blurry" />
+      <div class="container my-5">
+        <div class="card-group">
+          <div class="card">
+            <img
+              src="../images/pokePrinciple1.jpeg"
+              class="card-img-top"
+              alt="Hollywood Sign on The Hill"
+            />
+            <div class="card-body">
+              <h1 class="text-center">Help the Other, and accept everyone</h1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="../images/pokePrinciple2.jpeg"
+              class="card-img-top"
+              alt="Palm Springs Road"
+            />
+            <div class="card-body">
+              <h1 class="text-center">Enjoy life to the fullest</h1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="../images/pokePrinciple3.jpeg"
+              class="card-img-top"
+              alt="Los Angeles Skyscrapers"
+            />
+            <div class="card-body">
+              <h1 class="text-center">Help your community</h1>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="text-center text-lg-start bg-light text-muted">
+      <section
+        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+      >
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </section>
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Pokemon-Go
+              </h4>
+              <p>Hope you enjoy our site.</p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Products</h4>
+              <p>
+                <a href="#!" class="text-reset">Buy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Play</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Search</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Sign-up</a>
+              </p>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Useful links</h4>
+              <p>
+                <a href="#!" class="text-reset">Home</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">About</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Contact</a>
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h4 class="text-uppercase fw-bold mb-4">Contact</h4>
+              <p><i class="fas fa-home me-3"></i> Lod, Tech Career, Israel</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                OGpok@gmail.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
+          >Pokemon-Go</a
+        >
+      </div>
+    </footer>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
+    ></script>
+    <script src="about.js"></script>
+  </body>
 </html>

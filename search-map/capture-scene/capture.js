@@ -163,6 +163,7 @@ function continueScene() {
 }
 
 function returnToMapScene() {
+  document.getElementById("capture_btn").style.display = "block";
   document.getElementById("battle_con").style.display = "none";
   document.getElementById("map_scene").style.display = "block";
 }

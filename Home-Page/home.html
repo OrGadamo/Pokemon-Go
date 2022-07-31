@@ -21,6 +21,110 @@
     <title>Home</title>
   </head>
   <body>
+    <div id="overlay">
+      <div
+        class="container-fluid h-100 d-flex justify-content-center align-items-center"
+      >
+        <div id="signup_con">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-xl-4 position-relative">
+                <button
+                  onclick="closeSignUp()"
+                  type="button"
+                  class="btn-close position-absolute top-0 start-0"
+                  aria-label="Close"
+                ></button>
+                <img
+                  src="../images/sign_up.jpeg"
+                  alt="Trendy Pants and Shoes"
+                  class="img-fluid rounded-start"
+                />
+              </div>
+              <div class="col-xl-8">
+                <div class="card-body p-5">
+                  <h1 class="display-1 text-center">Sign-Up</h1>
+                  <form onsubmit="submitForm(event)">
+                    <div class="row mb-4">
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="text" id="f_name" class="form-control" />
+                          <label class="form-label" for="f_name"
+                            >First name</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="text" id="l_name" class="form-control" />
+                          <label class="form-label" for="l_name"
+                            >Last name</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input
+                        type="email"
+                        id="sign_email"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="email"
+                        >Email address</label
+                      >
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                      />
+                      <label class="form-label" for="Password">Password</label>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block mb-4"
+                    >
+                      Sign up
+                    </button>
+                    <div class="text-center">
+                      <p>or sign up with:</p>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-facebook-f"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-google"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-twitter"></i>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-floating mx-1"
+                      >
+                        <i class="fab fa-github"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
       <nav id="myHeader" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -55,14 +159,19 @@
                 <a class="nav-link nav_links" href="#">Contact</a>
               </li>
             </ul>
-            <div class="d-flex align-items-center">
+            <div id="login_btncol" class="d-flex align-items-center">
               <button
+                onclick="openSignUp()"
                 type="button"
                 class="nav_btn btn btn-lg btn-link px-3 me-2"
               >
                 Login
               </button>
-              <button type="button" class="nav_btn btn btn-lg btn-primary me-3">
+              <button
+                type="button"
+                onclick="openSignUp()"
+                class="nav_btn btn btn-lg btn-primary me-3"
+              >
                 Sign up for free
               </button>
             </div>
@@ -70,7 +179,7 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main id="changer_main">
       <div class="container-fluid mb-4">
         <video src="../videos/pokemon-govid.webm" autoplay muted></video>
       </div>
@@ -78,10 +187,23 @@
         class="container-fluid d-flex justify-content-center align-items-center"
       >
         <div class="home_show row" id="water_poke">
-          <div class="col-6">
-            <h1>Join Us -now</h1>
+          <div class="col-12 col-lg-6">
+            <div
+              class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
+            >
+              <h1 class="display-1 text-white text-center">
+                Start Playing Now And Get The New Packages
+              </h1>
+              <button
+                onclick="openSignUp()"
+                type="button"
+                class="my-5 btn btn-warning btn-lg start_btn"
+              >
+                Start Now
+              </button>
+            </div>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <img class="img-fluid" src="../images/water-poke.png" alt="" />
           </div>
         </div>
@@ -90,18 +212,48 @@
         class="container-fluid d-flex justify-content-center align-items-center"
       >
         <div class="home_show row" id="fire_poke">
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <img class="img-fluid" src="../images/fire-poke.png" alt="" />
           </div>
-          <div class="col-6"></div>
+          <div class="col-12 col-lg-6">
+            <div
+              class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
+            >
+              <h1 class="display-1 text-white text-center">
+                Sign Up And Play With Your Friends
+              </h1>
+              <button
+                onclick="openSignUp()"
+                type="button"
+                class="my-5 btn btn-warning btn-lg start_btn"
+              >
+                Start Now
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div
         class="container-fluid d-flex justify-content-center align-items-center"
       >
         <div class="home_show row" id="grass_poke">
-          <div class="col-6"></div>
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
+            <div
+              class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
+            >
+              <h1 class="display-1 text-white text-center">
+                Join Our Community And Check Out Our New Pokemons
+              </h1>
+              <button
+                onclick="openSignUp()"
+                type="button"
+                class="my-5 btn btn-warning btn-lg start_btn"
+              >
+                Start Now
+              </button>
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
             <img class="img-fluid" src="../images/grass-poke.png" alt="" />
           </div>
         </div>
@@ -110,17 +262,32 @@
         class="container-fluid d-flex justify-content-center align-items-center mb-4"
       >
         <div class="home_show row" id="normal_poke">
-          <div class="col-6">
+          <div class="col-12 col-lg-6">
             <img src="../images/normal-poke.png" alt="" class="img-fluid" />
           </div>
-          <div class="col-6"></div>
+          <div class="col-12 col-lg-6">
+            <div
+              class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
+            >
+              <h1 class="display-1 text-white text-center">
+                Explore New World And Build Out Achievements
+              </h1>
+              <button
+                onclick="openSignUp()"
+                type="button"
+                class="my-5 btn btn-warning btn-lg start_btn"
+              >
+                Start Now
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container-fluid my-5 d-flex justify-content-center">
         <div id="news_div" class="row">
           <h1 class="display-1 col-12 text-center">Our Latest News</h1>
           <hr class="divider-horizontal-blurry col-12" />
-          <div class="col-8 mb-3 news_card">
+          <div class="col-12 col-lg-8 mb-3 news_card">
             <div
               class="bg-image card shadow-1-strong h-100"
               style="background-image: url('../images/news1.jpg')"
@@ -133,7 +300,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4 mb-3 news_card">
+          <div class="col-12 col-lg-4 mb-3 news_card">
             <div
               class="bg-image card shadow-1-strong h-100"
               style="background-image: url('../images/news4.jpg')"
@@ -146,7 +313,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4 mb-3 news_card">
+          <div class="col-12 col-lg-4 mb-3 news_card">
             <div
               class="bg-image card shadow-1-strong h-100"
               style="background-image: url('../images/news3.png')"
@@ -159,7 +326,7 @@
               </div>
             </div>
           </div>
-          <div class="col-8 mb-3 news_card">
+          <div class="col-12 col-lg-8 mb-3 news_card">
             <div
               class="bg-image card shadow-1-strong h-100"
               style="background-image: url('../images/news2.jpg')"
@@ -173,23 +340,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="row text-center">
-          <h1 class="display-1 col-12">Our Latest News</h1>
-          <hr class="divider-horizontal-blurry" />
-          <div class="col-8">
-            <img src="../images/news1.jpg" alt="" />
-          </div>
-          <div class="col-4">
-            <img src="../images/news4.jpg" alt="" />
-          </div>
-          <div class="col-4">
-            <img src="../images/news3.png" alt="" />
-          </div>
-          <div class="col-8">
-            <img src="../images/news2.jpg" alt="" />
-          </div>
-        </div> -->
       </div>
       <div class="container-fluid d-flex justify-content-center">
         <div id="icon_stats">
@@ -237,10 +387,24 @@
       </div>
       <div class="container-fluid my-5 d-flex justify-content-center">
         <div id="sign_div" class="row">
-          <div class="col-6 ps-0">
+          <div class="col-12 col-lg-6 px-0">
             <img src="../images/signupPoke.jpg" alt="" class="img-fluid" />
           </div>
-          <div class="col-6"></div>
+          <div class="col-12 col-lg-6 px-0">
+            <div class="p-5 text-center d-flex flex-column align-items-center">
+              <h1 class="display-2">Your Mission?</h1>
+              <h2 class="display-4">GO And Catch Them All</h2>
+              <h1 class="display-2">What Are You Waiting For?</h1>
+              <h2 class="display-4">Start Now</h2>
+              <button
+                type="button"
+                onclick="openSignUp()"
+                class="btn btn-primary start_btn btn-lg"
+              >
+                Sign-Up
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -331,6 +495,11 @@
         >
       </div>
     </footer>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
+    ></script>
     <script src="home.js"></script>
   </body>
 </html>

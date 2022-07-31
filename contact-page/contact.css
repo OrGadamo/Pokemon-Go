@@ -1,0 +1,29 @@
+/* 
+general css
+body {
+  background-image: url("../images/backgrounds/AzurLane.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.nav_links {
+  font-size: 2.5vh;
+}
+.nav_btn {
+  font-size: 1.5vh;
+}
+footer {
+  font-size: 2vh;
+} */
+/* contact css */
+main {
+  min-height: 80vh;
+}
+#img_contact {
+  width: 90%;
+}
+#contact_div {
+  width: 80%;
+}
+#contact_formcon {
+  width: 90%;
+}

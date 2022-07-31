@@ -1,11 +1,8 @@
+/* general css
 body {
   background-image: url("../images/backgrounds/AzurLane.jpg");
   background-size: cover;
   background-position: center;
-}
-
-#myHeader {
-  height: 10vh;
 }
 .nav_links {
   font-size: 2.5vh;
@@ -13,8 +10,44 @@ body {
 .nav_btn {
   font-size: 1.5vh;
 }
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+#signup_con {
+  width: 60%;
+}
+@media screen and (max-width: 768px) {
+  #signup_con {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  #signup_con {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #signup_con {
+    width: 70%;
+  }
+}
+footer {
+  font-size: 2vh;
+} */
+
+/* home css */
 .home_show {
-  height: 50vh;
+  padding: 3vh;
   width: 90%;
   border-radius: 10px;
   background-size: cover;
@@ -31,9 +64,6 @@ body {
 }
 #normal_poke {
   background-image: url("../images/backgrounds/MidnightCity.jpg");
-}
-footer {
-  font-size: 2vh;
 }
 video {
   width: 100%;
@@ -54,4 +84,7 @@ video {
 }
 #icon_stats {
   width: 70%;
+}
+.start_btn {
+  width: 50%;
 }
