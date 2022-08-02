@@ -4,7 +4,7 @@ function loadHomePage() {
   document.getElementById("changer_main").className = "";
   document.getElementById("changer_main").innerHTML = `
   <div class="container-fluid mb-4">
-  <video src="../videos/pokemon-govid.webm" autoplay muted></video>
+  <video src="videos/pokemon-govid.webm" autoplay muted></video>
 </div>
 <div
   class="container-fluid d-flex justify-content-center align-items-center"
@@ -27,7 +27,7 @@ function loadHomePage() {
       </div>
     </div>
     <div class="col-12 col-lg-6">
-      <img class="img-fluid" src="../images/water-poke.png" alt="" />
+      <img class="img-fluid" src="images/water-poke.png" alt="" />
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@ function loadHomePage() {
 >
   <div class="home_show row" id="fire_poke">
     <div class="col-12 col-lg-6">
-      <img class="img-fluid" src="../images/fire-poke.png" alt="" />
+      <img class="img-fluid" src="images/fire-poke.png" alt="" />
     </div>
     <div class="col-12 col-lg-6">
       <div
@@ -77,7 +77,7 @@ function loadHomePage() {
       </div>
     </div>
     <div class="col-12 col-lg-6">
-      <img class="img-fluid" src="../images/grass-poke.png" alt="" />
+      <img class="img-fluid" src="images/grass-poke.png" alt="" />
     </div>
   </div>
 </div>
@@ -86,7 +86,7 @@ function loadHomePage() {
 >
   <div class="home_show row" id="normal_poke">
     <div class="col-12 col-lg-6">
-      <img src="../images/normal-poke.png" alt="" class="img-fluid" />
+      <img src="images/normal-poke.png" alt="" class="img-fluid" />
     </div>
     <div class="col-12 col-lg-6">
       <div
@@ -113,7 +113,7 @@ function loadHomePage() {
     <div class="col-12 col-lg-8 mb-3 news_card">
       <div
         class="bg-image card shadow-1-strong h-100"
-        style="background-image: url('../images/news1.jpg')"
+        style="background-image: url('images/news1.jpg')"
       >
         <div
           class="card-body d-flex flex-column justify-content-end article_news"
@@ -126,7 +126,7 @@ function loadHomePage() {
     <div class="col-12 col-lg-4 mb-3 news_card">
       <div
         class="bg-image card shadow-1-strong h-100"
-        style="background-image: url('../images/news4.jpg')"
+        style="background-image: url('images/news4.jpg')"
       >
         <div
           class="card-body d-flex flex-column justify-content-end article_news"
@@ -139,7 +139,7 @@ function loadHomePage() {
     <div class="col-12 col-lg-4 mb-3 news_card">
       <div
         class="bg-image card shadow-1-strong h-100"
-        style="background-image: url('../images/news3.png')"
+        style="background-image: url('images/news3.png')"
       >
         <div
           class="card-body d-flex flex-column justify-content-end article_news"
@@ -152,7 +152,7 @@ function loadHomePage() {
     <div class="col-12 col-lg-8 mb-3 news_card">
       <div
         class="bg-image card shadow-1-strong h-100"
-        style="background-image: url('../images/news2.jpg')"
+        style="background-image: url('images/news2.jpg')"
       >
         <div
           class="card-body d-flex flex-column justify-content-end article_news"
@@ -211,7 +211,7 @@ function loadHomePage() {
 <div class="container-fluid my-5 d-flex justify-content-center">
   <div id="sign_div" class="row">
     <div class="col-12 col-lg-6 px-0">
-      <img src="../images/signupPoke.jpg" alt="" class="img-fluid" />
+      <img src="images/signupPoke.jpg" alt="" class="img-fluid" />
     </div>
     <div class="col-12 col-lg-6 px-0">
       <div class="p-5 text-center d-flex flex-column align-items-center">

@@ -141,7 +141,7 @@ function createRandomPokemonsArray(pokeNum) {
 function getPokemonInfo(pokemon, index) {
   return ` <div class="container-fluid">
   <div class="row d-flex justify-content-center">
-    <div class="card col-11">
+    <div class="card col-12">
       <div
         class="bg-image hover-overlay ripple d-flex justify-content-center"
         data-mdb-ripple-color="light"
@@ -158,10 +158,9 @@ function getPokemonInfo(pokemon, index) {
         </a>
       </div>
       <div class="card-body">
-      <div class="d-flex justify-content-between">
       <h5 class="card-title">${pokemon.name}</h5>
-      <a href="#!" onclick="changeToScene(${index})" class="btn btn-primary">Capture</a>
-      </div>
+      <a href="#!" onclick="changeToScene(${index})" class="btn btn-danger">Capture</a>
+      
       </div>
     </div>
   </div>

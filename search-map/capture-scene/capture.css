@@ -4,6 +4,7 @@
   background-size: cover;
   height: 80vh;
   display: none;
+  overflow: hidden;
 }
 #text_box_con {
   width: 50%;
@@ -11,6 +12,7 @@
   background-color: #000000bd;
   color: white;
   font-family: "Press Start 2P", cursive;
+  overflow: scroll;
 }
 #pokemon_ball_img {
   width: 25%;
@@ -66,4 +68,11 @@
 }
 .press {
   cursor: pointer;
+  font-size: calc(10px + 1vw);
+}
+#spawn_poke {
+  width: 90%;
+}
+#text_box {
+  font-size: 3vw;
 }

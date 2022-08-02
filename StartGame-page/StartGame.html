@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PokeMap</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -21,15 +19,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="capture-scene/capture.css" />
-    <link rel="stylesheet" href="PokeMap.css" />
     <link rel="icon" type="image/png" href="../images/pokemon_ball.png" />
+    <link rel="stylesheet" href="StartGame.css" />
+    <title>Start Game</title>
   </head>
   <body>
     <header>
@@ -224,68 +216,7 @@
       </div>
       <div id="covermap_con" class="container-fluid d-flex justify-content-center my-5">
         <div id="change_mapscene">
-          <div id="map_scene" class="container-fluid">
-            <div id="map_capture_div" class="row justify-content-center">
-              <div id="map" class="col-10"></div>
-            </div>
-          </div>
-          <div class="container mt-5 position-relative" id="battle_con">
-            <div id="overlay">
-              <div
-                id="capture_con"
-                class="d-flex justify-content-center align-items-center"
-              >
-                <img
-                  id="capture_pokeball"
-                  src="../images/final_closeball.png"
-                  alt=""
-                />
-                <div id="pokemon_capturedCon">
-                  <img id="pokemon_capturedImg" src="/images/fail.png" alt="" />
-                </div>
-                <div id="continue_div" class="p-4">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    onclick="continueScene()"
-                  >
-                    Continue
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div id="spawn_div" class="position-absolute top-50 start-50">
-              <img id="spawn_poke" src="" alt="" />
-            </div>
-            <div
-              id="text_box_con"
-              class="position-absolute bottom-0 start-0 p-4 d-flex flex-column justify-content-center"
-              style="z-index:1;"
-            >
-              <h2 id="text_box" class="p-2"></h2>
-              <div class="p-2">
-                <h5 id="capture_btn" onclick="throwAnimation()" class="press">
-                  <i class="arrow_right"></i> Capture
-                </h5>
-                <h5 onclick="returnToMapScene()" class="press">
-                  <i class="arrow_right"></i> Pass
-                </h5>
-              </div>
-            </div>
-            <div
-              class="position-absolute end-0 bottom-0 p-4"
-            ><div class="d-flex justify-content-end align-items-center">
-              <img id="pokemon_ball_img" src="../images/pokemon_ball.png" alt="" />
-              <h1 id="tries"></h1>
-            </div>
-            </div>
-            <img
-              class="position-absolute bottom-0 end-0"
-              id="catch_pokemon_ball"
-              src="../images/pokemon_ball.png"
-              alt=""
-            />
-          </div>
+  
         </div>
       </div>
       <div class="container my-5  d-flex flex-column align-items-center justify-content-center">
@@ -294,7 +225,8 @@
 
       </div>
     </main>
-    <footer class="bg-dark text-center text-white">
+    <footer>
+      <footer class="bg-dark text-center text-white">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
           <!-- Section: Social media -->
@@ -339,16 +271,11 @@
           <a class="text-white" href="https://mdbootstrap.com/">Pokemon-go.OG</a>
         </div>
         <!-- Copyright -->
+      </footer>
     </footer>
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd80_I-UlItHowJKF5ylwA3J64s2NF3Wg&callback=startMap"
-    ></script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
     ></script>
-    <script src="capture-scene/capture.js"></script>
-    <script src="PokeMap.js"></script>
   </body>
 </html>

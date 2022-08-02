@@ -61,7 +61,7 @@ function loadContactPage() {
       <div
         class="col-12 d-flex justify-content-center d-xl-block col-xl-6 px-0"
       >
-        <img id="img_contact" src="../images/contact.jpeg" alt="" />
+        <img id="img_contact" src="images/contact.jpeg" alt="" />
       </div>
     </div>
   </div>
