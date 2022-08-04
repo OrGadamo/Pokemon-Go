@@ -74,5 +74,5 @@
   width: 90%;
 }
 #text_box {
-  font-size: 3vw;
+  font-size: calc(10px + 1vw);
 }

@@ -20,9 +20,11 @@ body {
 #myBrand {
   font-size: 3vh;
 }
+header {
+  margin-bottom: 5vw;
+}
 #txt_header {
-  margin-top: 10vh;
-  margin-bottom: 15vh;
+  margin-bottom: 5vw;
 }
 #game_headline {
   font-family: "Mochiy Pop One", sans-serif;

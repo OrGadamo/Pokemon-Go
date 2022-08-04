@@ -1,0 +1,57 @@
+body {
+  min-height: 100%;
+  background: url(https://images7.alphacoders.com/592/592678.jpg) #121212;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+#toggle_btn {
+  font-size: 3vh;
+}
+.pokenav_link {
+  color: white;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  font-size: 3vh;
+}
+.pokenav_link:hover {
+  color: #f07900;
+}
+#myBrand {
+  font-size: 3vh;
+}
+header {
+  margin-bottom: 5vw;
+}
+main {
+  min-height: 80vh;
+}
+#headline_inven {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: white;
+  font-size: calc(15px + 6vw);
+  background: rgb(255 18 18);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 18, 18, 1) 0%,
+    rgba(18, 18, 18, 0) 40%
+  );
+}
+#inven_con {
+  margin-top: 15vw;
+}
+.stage_con {
+  background-color: rgb(0, 0, 0, 0.3);
+}
+#stage {
+  width: 100%;
+}
+#stage_poke {
+  width: 60%;
+}
+.inven_poke {
+  width: 90%;
+}
+.poke_box {
+  width: 80%;
+}

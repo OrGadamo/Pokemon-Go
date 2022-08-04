@@ -1,0 +1,54 @@
+body {
+  min-height: 100%;
+  background: url(https://images7.alphacoders.com/592/592678.jpg) #121212;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+#toggle_btn {
+  font-size: 3vh;
+}
+.pokenav_link {
+  color: white;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  font-size: 3vh;
+}
+.pokenav_link:hover {
+  color: #f07900;
+}
+#myBrand {
+  font-size: 3vh;
+}
+header {
+  margin-bottom: 5vw;
+}
+main {
+  min-height: 80vh;
+}
+#headline_shop {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: white;
+  font-size: calc(15px + 6vw);
+}
+#shop_nav {
+  background-color: #f0790054;
+  border-radius: 20px;
+}
+#cart_icon {
+  font-size: calc(15px + 1vw);
+}
+#cart_badge {
+  font-size: calc(10px + 0.5vw);
+}
+#search_input {
+  font-size: calc(10px + 1vw);
+  height: fit-content;
+}
+#search-addon {
+  font-size: calc(15px + 1vw);
+}
+#user_shoppinglist li {
+  font-size: calc(15px + 1.5vw);
+  border-bottom: #121212 dashed 1px;
+}
