@@ -7,7 +7,7 @@ function loadContactPage() {
     <div class="container-fluid my-5" id="contact_div">
     <div class="row rounded shadow-5-strong">
       <div
-        class="col-12 col-xl-6 px-0 d-flex justify-content-center justify-content-xl-end"
+        class="col-12 col-xxl-6 px-0 d-flex justify-content-center justify-content-xxl-end"
       >
         <div
           id="contact_formcon"
@@ -59,7 +59,7 @@ function loadContactPage() {
         </div>
       </div>
       <div
-        class="col-12 d-flex justify-content-center d-xl-block col-xl-6 px-0"
+        class="col-12 d-flex justify-content-center d-xxl-block col-xxl-6 px-0"
       >
         <img id="img_contact" src="images/contact.jpeg" alt="" />
       </div>

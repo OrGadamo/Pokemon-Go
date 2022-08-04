@@ -20,13 +20,13 @@ function loadHomePage() {
         <button
           onclick="openSignUp()"
           type="button"
-          class="my-5 btn btn-warning btn-lg start_btn"
+          class="my-1 btn btn-warning btn-lg start_btn"
         >
           Start Now
         </button>
       </div>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 d-flex align-items-end">
       <img class="img-fluid" src="images/water-poke.png" alt="" />
     </div>
   </div>
@@ -35,7 +35,7 @@ function loadHomePage() {
   class="container-fluid d-flex justify-content-center align-items-center"
 >
   <div class="home_show row" id="fire_poke">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6  d-flex align-items-end">
       <img class="img-fluid" src="images/fire-poke.png" alt="" />
     </div>
     <div class="col-12 col-lg-6">
@@ -48,7 +48,7 @@ function loadHomePage() {
         <button
           onclick="openSignUp()"
           type="button"
-          class="my-5 btn btn-warning btn-lg start_btn"
+          class="my-1 btn btn-warning btn-lg start_btn"
         >
           Start Now
         </button>
@@ -70,13 +70,13 @@ function loadHomePage() {
         <button
           onclick="openSignUp()"
           type="button"
-          class="my-5 btn btn-warning btn-lg start_btn"
+          class="my-1 btn btn-warning btn-lg start_btn"
         >
           Start Now
         </button>
       </div>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6  d-flex align-items-end">
       <img class="img-fluid" src="images/grass-poke.png" alt="" />
     </div>
   </div>
@@ -85,7 +85,7 @@ function loadHomePage() {
   class="container-fluid d-flex justify-content-center align-items-center mb-4"
 >
   <div class="home_show row" id="normal_poke">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6  d-flex align-items-end">
       <img src="images/normal-poke.png" alt="" class="img-fluid" />
     </div>
     <div class="col-12 col-lg-6">
@@ -98,7 +98,7 @@ function loadHomePage() {
         <button
           onclick="openSignUp()"
           type="button"
-          class="my-5 btn btn-warning btn-lg start_btn"
+          class="my-1 btn btn-warning btn-lg start_btn"
         >
           Start Now
         </button>
@@ -209,16 +209,16 @@ function loadHomePage() {
   </div>
 </div>
 <div class="container-fluid my-5 d-flex justify-content-center">
-  <div id="sign_div" class="row">
-    <div class="col-12 col-lg-6 px-0">
+  <div id="sign_div" class="row d-flex justify-content-center">
+    <div class="col-12 col-xxl-6 px-0 d-flex justify-content-center align-items-center">
       <img src="images/signupPoke.jpg" alt="" class="img-fluid" />
     </div>
-    <div class="col-12 col-lg-6 px-0">
+    <div class="col-12 col-xxl-6 px-0">
       <div class="p-5 text-center d-flex flex-column align-items-center">
-        <h1 class="display-2">Your Mission?</h1>
-        <h2 class="display-4">GO And Catch Them All</h2>
-        <h1 class="display-2">What Are You Waiting For?</h1>
-        <h2 class="display-4">Start Now</h2>
+        <h1 class="display-3">Your Mission?</h1>
+        <h2 class="display-5">GO And Catch Them All</h2>
+        <h1 class="display-3">What Are You Waiting For?</h1>
+        <h2 class="display-5">Start Now</h2>
         <button
           type="button"
           onclick="openSignUp()"

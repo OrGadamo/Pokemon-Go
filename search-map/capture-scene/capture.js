@@ -1,11 +1,12 @@
-let pokeImg;
+let spawnPoke;
 let tries;
 let capture;
+let capturedPokemon = [];
 function mainCaptureScene(pokemon) {
   document.getElementById("map_scene").style.display = "none";
   document.getElementById("battle_con").style.display = "block";
-  pokeImg = pokemon.front_pic;
-  document.getElementById("spawn_poke").src = pokeImg;
+  spawnPoke = pokemon;
+  document.getElementById("spawn_poke").src = spawnPoke.front_pic;
   document.getElementById(
     "text_box"
   ).innerText = `You encoutered a wild ${pokemon.name}`;
@@ -142,13 +143,13 @@ function showCapuredPokemon() {
   let img = getCaptureOrFail();
   document.getElementById("pokemon_capturedImg").src = img;
   pokemon.style.display = "block";
-  capture = img == pokeImg;
+  capture = img == spawnPoke.front_pic;
   document.getElementById("continue_div").style.display = "block";
 }
 //lucky function
 function getCaptureOrFail() {
   let luckyNumber = Math.floor(Math.random() * 10);
-  return luckyNumber > 6 ? pokeImg : "../images/fail.png";
+  return luckyNumber > 6 ? spawnPoke.front_pic : "../images/fail.png";
 }
 function continueScene() {
   switchBackToScreen();
@@ -157,6 +158,7 @@ function continueScene() {
     document.getElementById("tries").innerText = `X${tries}`;
   } else {
     document.getElementById("capture_btn").style.display = "none";
+    capturedPokemon.push(spawnPoke);
   }
 
   if (tries == 0) document.getElementById("capture_btn").style.display = "none";

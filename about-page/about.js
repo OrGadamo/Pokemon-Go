@@ -12,7 +12,7 @@ function loadAboutPage() {
       <div class="col-12 d-flex justify-content-center">
         <img
           class="img-fluid rounded shadow-5-strong"
-          src="../images/about_img.jpeg"
+          src="images/about_img.jpeg"
           alt=""
         />
       </div>
@@ -22,9 +22,9 @@ function loadAboutPage() {
   <hr class="divider-horizontal-blurry" />
   <div class="container-fluid my-5 d-flex justify-content-center">
     <div class="size_div row rounded shadow-4-strong">
-      <div class="col-12 col-lg-6 px-0 bg-light">
+      <div class="col-12 col-xxl-6 px-0 bg-light">
         <div class="p-4 d-flex flex-column justify-content-around h-100">
-          <h3 class="display-3">
+          <h3 class="display-5">
             "Even though you’re growing up, you should never stop having
             fun.”<strong>– Nina Dobrev</strong>
           </h3>
@@ -36,7 +36,7 @@ function loadAboutPage() {
           <h2><strong>Never Stop Having Fun</strong></h2>
         </div>
       </div>
-      <div class="col-12 col-lg-6 px-0">
+      <div class="col-12 col-xxl-6 px-0">
         <img
           id="img_about"
           src="https://latestgamestories.com/wp-content/uploads/2022/05/How-many-Pokemon-are-there-in-2022-All-types-and.jpg"
@@ -51,7 +51,7 @@ function loadAboutPage() {
     <div class="card-group">
       <div class="card">
         <img
-          src="../images/pokePrinciple1.jpeg"
+          src="images/pokePrinciple1.jpeg"
           class="card-img-top"
           alt="Hollywood Sign on The Hill"
         />
@@ -64,7 +64,7 @@ function loadAboutPage() {
       </div>
       <div class="card">
         <img
-          src="../images/pokePrinciple2.jpeg"
+          src="images/pokePrinciple2.jpeg"
           class="card-img-top"
           alt="Palm Springs Road"
         />
@@ -77,7 +77,7 @@ function loadAboutPage() {
       </div>
       <div class="card">
         <img
-          src="../images/pokePrinciple3.jpeg"
+          src="images/pokePrinciple3.jpeg"
           class="card-img-top"
           alt="Los Angeles Skyscrapers"
         />
