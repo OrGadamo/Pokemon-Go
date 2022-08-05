@@ -55,3 +55,13 @@ main {
 .poke_box {
   width: 80%;
 }
+#poke_title {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: white;
+  font-size: calc(15px + 3vw);
+  margin-bottom: 3vh;
+}
+.poke_info {
+  color: white;
+  font-size: calc(10px + 1vw);
+}

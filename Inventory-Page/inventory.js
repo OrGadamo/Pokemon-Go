@@ -1,61 +1,4 @@
-let capturedPokemon = [
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-  {
-    back_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/9.png",
-    front_pic:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/9.svg",
-    name: "blastoise",
-  },
-];
+let capturedPokemon = [];
 window.onload = () => {
   if (capturedPokemon.length > 0) {
     displayStage();
@@ -75,8 +18,19 @@ function captureDisplay(index) {
   document.getElementById("poke_detail").innerHTML = getCapturedInfo(index);
 }
 function getCapturedInfo(index) {
+  let pokemon = capturedPokemon[index];
   return `
-    <h1>${capturedPokemon[index].name}</h1>
+  <div class="p-2">
+  <h1 id="poke_title">${pokemon.name}</h1>
+  <h2 class="poke_info"><strong>Species</strong>: ${pokemon.species}</h2>
+  <h2 class="poke_info"><strong>Type</strong>: ${pokemon.getStringTypes()}</h2>
+  <h2 class="poke_info"><strong>Stats</strong>: ${pokemon.getStringStats()}</h2>
+  <h2 class="poke_info"><strong>Abilities</strong>: ${pokemon.getStringAbilities()}</h2>
+  <h2 class="poke_info"><strong>Moves</strong>: ${pokemon.getStringMoves()}</h2>
+  <h2 class="poke_info"><strong>Last Type</strong>: ${
+    pokemon.pastType ? pokemon.pastType : "none"
+  }</h2>
+  </div>
     `;
 }
 function displayInventory() {

@@ -26,18 +26,27 @@ header {
 main {
   min-height: 80vh;
 }
-#headline_anime {
+#headline_wiki {
   font-family: "Mochiy Pop One", sans-serif;
   color: white;
-  font-size: calc(15px + 6vw);
+  font-size: calc(10px + 5vw);
+  margin-bottom: 5vw;
 }
-#anime_icon {
+.wiki_icon {
   font-size: calc(15px + 4vw);
   color: #f07900;
-  transform: translate(-50%, 50%);
 }
-.gif_con {
-  width: 70%;
+#fireImg_con {
+  background-image: url(../images/backgrounds/BurningOrange.jpg);
+}
+#waterImg_con {
+  background-image: url(../images/backgrounds/BlueSkies.jpg);
+}
+#grassImg_con {
+  background-image: url(../images/backgrounds/Quepal.jpg);
+}
+#normalImg_con {
+  background-image: url(../images/backgrounds/MidnightCity.jpg);
 }
 #search_form {
   width: 40%;
@@ -45,6 +54,6 @@ main {
   display: flex;
   justify-content: center;
 }
-.anime_star {
-  color: #d1bb1d;
+.wiki_pokeImg {
+  background-color: #edab67;
 }

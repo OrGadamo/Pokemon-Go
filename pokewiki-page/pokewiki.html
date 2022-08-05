@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poke-Wiki</title>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="pokewiki.css" />
+  <link rel="icon" type="image/png" href="../images/pokemon_ball.png" />
+  </head>
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg mt-5">
+          <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+              <img
+                src="../icons/pokeIcon.png"
+                height="150"
+                alt="MDB Logo"
+                loading="lazy"
+              />
+            </a>
+            <button
+            id="toggle_btn"
+              class="navbar-toggler text-white"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#pokenav"
+              aria-controls="pokenav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-center" id="pokenav">
+              <div class="navbar-nav">
+                <a class="nav-link active pokenav_link" aria-current="page" href="#">Home</a>
+                <a class="nav-link pokenav_link" href="#">Features</a>
+                <a class="nav-link pokenav_link" href="#">Pricing</a>
+                <a class="nav-link pokenav_link"
+                  >help</a
+                >
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="container-fluid my-5 text-center">
+            <h1 id="headline_wiki"><i style="transform: translate(50%, -90%);" class="fas fa-search wiki_icon"></i>PokEWiki Center<i style="transform: translate(-50%, 80%);" class="fas fa-globe-americas wiki_icon"></i></h1>
+            <h1 class="display-4 text-white">Here in the PokeWiki you can explore and learn about new pokemons</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 d-flex p-4 justify-content-end">
+                    <img id="fireImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/fire-poke.png" alt="">
+                </div>
+                <div class="col-6 d-flex p-4 justify-content-start">
+                    <img id="grassImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/grass-poke.png" alt="">
+                </div>
+                 <div class="col-6 d-flex p-4 justify-content-end">
+                    <img id="normalImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/normal-poke.png" alt="">
+                </div>
+                <div class="col-6 d-flex p-4 justify-content-start">
+                    <img id="waterImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/water-poke.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div id="search_form" class="my-5">
+            <div class="input-group">
+              <div class="form-outline form-white w-75">
+                <input type="search" id="poke_search" class="form-control form-control-lg" />
+                <label class="form-label" for="form1">Search</label>
+              </div>
+              <button onclick="searchPokemon()" type="button" class="btn btn-warning btn-lg">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+        </div>
+        <div class="container-fluid my-5">
+            <div class="row" id="pokewiki_con">
+            </div>
+        </div>
+      </main>
+      
+    <footer class="bg-dark text-center ">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright:
+          <a class="text-white" href="https://mdbootstrap.com/">Pokemon-go.OG</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"
+      ></script>
+      <script src="pokewiki.js"></script>
+  </body>
+</html>
