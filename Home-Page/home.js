@@ -210,15 +210,15 @@ function loadHomePage() {
 </div>
 <div class="container-fluid my-5 d-flex justify-content-center">
   <div id="sign_div" class="row d-flex justify-content-center">
-    <div class="col-12 col-xxl-6 px-0 d-flex justify-content-center align-items-center">
+    <div class="col-12 col-xxl-6 px-0 d-flex justify-content-end align-items-center">
       <img src="images/signupPoke.jpg" alt="" class="img-fluid" />
     </div>
-    <div class="col-12 col-xxl-6 px-0">
-      <div class="p-5 text-center d-flex flex-column align-items-center">
-        <h1 class="display-3">Your Mission?</h1>
-        <h2 class="display-5">GO And Catch Them All</h2>
-        <h1 class="display-3">What Are You Waiting For?</h1>
-        <h2 class="display-5">Start Now</h2>
+    <div class="col-12 col-xxl-6 px-0 bg-white d-flex align-items-center justify-content-center">
+      <div class="p-3 text-center d-flex flex-column align-items-center bg-white">
+        <h1 class="display-4">Your Mission?</h1>
+        <h2 class="display-6">GO And Catch Them All</h2>
+        <h1 class="display-4">What Are You Waiting For?</h1>
+        <h2 class="display-6">Start Now</h2>
         <button
           type="button"
           onclick="openSignUp()"

@@ -37,7 +37,7 @@ function throwAnimation() {
 function catchAnimation() {
   catchEfect();
   let pokemonBall = document.getElementById("catch_pokemon_ball");
-  pokemonBall.src = "/images/open_pokeball.png";
+  pokemonBall.src = "../../images/open_pokeball.png";
   let ballX = 310;
   let ballY = 310;
   let intervalId = setInterval(() => {
@@ -64,11 +64,11 @@ function catchEfect() {
 //screen reset
 function returnScreenToNormal() {
   let pokemonBall = document.getElementById("catch_pokemon_ball");
-  pokemonBall.src = "/images/pokemon_ball.png";
+  pokemonBall.src = "../../images/pokemon_ball.png";
   pokemonBall.style.transform = `translate(0px,0px)`;
   pokemonBall.style.display = "none";
   let pokeball = document.getElementById("capture_pokeball");
-  pokeball.src = "/images/final_closeball.png";
+  pokeball.src = "../../images/final_closeball.png";
   pokeball.style.transform = `scale(1)`;
   let pokemon = document.getElementById("pokemon_capturedCon");
   pokemon.style.display = "none";
@@ -126,7 +126,7 @@ function captureAnimation() {
 //Big oppening
 function showPokemonCaptureAnimation() {
   let pokeball = document.getElementById("capture_pokeball");
-  pokeball.src = "/images/final_openball.png";
+  pokeball.src = "../../images/final_openball.png";
   let scale = 1;
   let intervalId = setInterval(() => {
     pokeball.style.transform = `scale(${scale})`;
@@ -149,7 +149,7 @@ function showCapuredPokemon() {
 //lucky function
 function getCaptureOrFail() {
   let luckyNumber = Math.floor(Math.random() * 10);
-  return luckyNumber > 6 ? spawnPoke.front_pic : "../images/fail.png";
+  return luckyNumber > 6 ? spawnPoke.front_pic : "../../images/fail.png";
 }
 function continueScene() {
   switchBackToScreen();
