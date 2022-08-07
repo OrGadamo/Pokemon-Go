@@ -17,7 +17,7 @@ function loadBattlePage() {
 <div id="arena_con" class="my-3">
 </div>
   `;
-  displayGymLeaders();
+  continueBattle();
 }
 function displayGymLeaders(water = true, fire = true, grass = true) {
   document.getElementById("arena_con").innerHTML = `
@@ -300,16 +300,12 @@ function displayUserWin() {
   <div class="container-fluid d-flex flex-column align-items-cecnter">
   <div class="row d-flex justify-content-center">
   <img class="col-4 img-fluid" src="../images/win_gif.gif" alt=""/>
-  </div>
-  <div class="row d-flex justify-content-center">
   <img class="col-4 img-fluid" src="../images/${
     userBadge[userBadge.length - 1]
   }_badge.png" alt=""/>
   </div>
   <div class="row d-flex justify-content-center">
-  <button onclick="continueBattle('${
-    userBadge[userBadge.length - 1]
-  }')" class="btn btn-warning btn-lg col-4">Continue</button>
+  <button onclick="continueBattle()" class="btn btn-warning btn-lg col-4">Continue</button>
   </div>
   </div>
   `;
@@ -326,19 +322,25 @@ function displayUserLose() {
   </div>
   `;
 }
-function continueBattle(badge = false) {
-  if (!badge) displayGymLeaders();
+function continueBattle() {
+  if (userBadge.length < 1) displayGymLeaders();
   else {
-    switch (badge) {
-      case "water":
-        displayGymLeaders(false);
-        break;
-      case "fire":
-        displayGymLeaders(true, false);
-        break;
-      case "grass":
-        displayGymLeaders(true, true, false);
-        break;
-    }
+    let fire = true;
+    let water = true;
+    let grass = true;
+    userBadge.forEach((badge) => {
+      switch (badge) {
+        case "water":
+          water = false;
+          break;
+        case "fire":
+          fire = false;
+          break;
+        case "grass":
+          grass = false;
+          break;
+      }
+    });
+    displayGymLeaders(water, fire, grass);
   }
 }

@@ -149,7 +149,7 @@ function showCapuredPokemon() {
 //lucky function
 function getCaptureOrFail() {
   let luckyNumber = Math.floor(Math.random() * 10);
-  return luckyNumber > 6 ? spawnPoke.front_pic : "../images/fail.png";
+  return luckyNumber > 1 ? spawnPoke.front_pic : "../images/fail.png";
 }
 function continueScene() {
   switchBackToScreen();

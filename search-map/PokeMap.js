@@ -254,6 +254,9 @@ function loadMapPage() {
 
 </div>
   `;
+  markerArray = [];
+  pokemonSpawn = [];
+  startMap();
 }
 
 window.onload = () => {

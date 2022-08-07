@@ -8,6 +8,10 @@ function loadInventoryPage() {
     Here you can see all your Pokemons
   </h1>
 </div>
+<div class="container d-flex justify-content-center">
+<div class="row d-flex justify-content-center" id="badge_con">
+</div>
+</div>
 <div class="container-fluid d-flex justify-content-center" id="inven_con">
 </div>
 <div class="container-fluid d-flex justify-content-center mb-5">
@@ -20,6 +24,7 @@ function loadInventoryPage() {
     captureDisplay(0);
     displayInventory();
   } else printErrorMessage();
+  displayBadges();
 }
 function displayCapturedPokemon(index) {
   document.getElementById("poke_div").innerHTML += `
@@ -70,4 +75,15 @@ function displayStage() {
           </div>
         </div>
     `;
+}
+function displayBadges() {
+  if (userBadge.length > 0) {
+    userBadge.forEach((badge) => {
+      document.getElementById("badge_con").innerHTML += `
+      <div class="col-3 border border-dark">
+      <img src="../images/${badge}_badge.png" alt="" class="img-fluid">
+    </div>
+      `;
+    });
+  }
 }
