@@ -1,44 +1,62 @@
 let berryArr = [];
-async function getBerriesAPI() {
-  try {
-    return await fetch(`https://pokeapi.co/api/v2/berry?offset=20&limit=50`)
-      .then((res) => res.json())
-      .then((res) => res.results);
-  } catch (error) {
-    console.log(error);
-  }
-}
-async function getBerry(API) {
-  try {
-    return await fetch(API).then((res) => res.json());
-  } catch (e) {
-    console.log(e);
-  }
-}
-class Berry {
-  constructor(id, name, power, type, size) {
-    this.id = id;
-    this.power = power;
-    this.name = name;
-    this.type = type;
-    this.size = size;
-    this.cost = power / 2;
-  }
-  static getBerriesArr(data) {
-    let arr = [];
-    for (let berry of data) {
-      arr.push(
-        new Berry(
-          berry.id,
-          berry.name,
-          berry.natural_gift_power,
-          berry.natural_gift_type.name,
-          berry.size
-        )
-      );
-    }
-    return arr;
-  }
+function loadShopPage() {
+  document.getElementById("change_main").innerHTML = `
+  <div class="container-fluid my-5 d-flex justify-content-center">
+  <h1 id="headline_shop">Shop Center<i style="color:#f07900" class="fas fa-shopping-cart"></i></h1>
+</div>
+<div class="container-fluid my-5 d-flex justify-content-center">
+  <h1 class="display-3 text-white">
+    Here in the shop center you can buy berries to power up your pokemon
+  </h1>
+</div>
+<div class="container my-5 d-flex justify-content-center">
+  <div class="row w-100 w-md-75 w-xl-50">
+    <nav class="navbar navbar-expand-lg p-3 navbar-dark" id="shop_nav">
+      <div class="container-fluid ">
+        <form id="search_form" class="d-flex me-auto input-group align-items-center w-auto">
+          <input
+          oninput="berrySearch()"
+            id="search_input"
+            type="search"
+            class="form-control rounded"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </form>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle hidden-arrow"
+              href="#"
+              id="shopping_list"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-shopping-cart cart_icon " id="cart_icon"></i>
+              <span id="cart_badge" class="badge rounded-pill badge-notification bg-danger">0</span>
+            </a>
+            <ul
+            id="user_shoppinglist"
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="shopping_list"
+            >
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="container-fluid my-5">
+  <div class="row" id="berries_con"></div>
+</div>
+  `;
+  getBerriesArr();
 }
 function getBerriesArr() {
   let arr = [];
@@ -55,7 +73,6 @@ function getClassArr(data) {
   berryArr = Berry.getBerriesArr(data);
   displayCards(berryArr);
 }
-getBerriesArr();
 function getBerryCard(berry) {
   return `
   <div class="col-12 col-lg-6 col-xl-4 mb-3">

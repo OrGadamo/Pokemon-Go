@@ -1,122 +1,45 @@
-const pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
-//new pokemon class
-class Pokemon {
-  constructor(
-    name,
-    front_pic,
-    back_pic,
-    species,
-    pastType,
-    stats,
-    type,
-    moves,
-    abilities
-  ) {
-    this.name = Pokemon.getPokemonNameCaptilise(name);
-    this.front_pic = front_pic;
-    this.back_pic = back_pic;
-    this.species = species;
-    this.pastType = pastType;
-    this.stats = stats;
-    this.type = type;
-    this.moves = moves;
-    this.abilities = abilities;
-  }
-  static getPokemonNameCaptilise(name) {
-    return name[0].toUpperCase() + name.substr(1);
-  }
-  static switchAPIPokemonToClass(pokemon) {
-    return new Pokemon(
-      pokemon.name,
-      pokemon.sprites.other.dream_world.front_default,
-      pokemon.sprites.back_default,
-      pokemon.species.name,
-      Pokemon.CheckPastTypes(pokemon.past_types),
-      Pokemon.getCleanStats(pokemon.stats),
-      Pokemon.getCleanTypes(pokemon.types),
-      Pokemon.getMoveList(pokemon.moves),
-      Pokemon.getAbillities(pokemon.abilities)
-    );
-  }
-  static CheckPastTypes(pastArr) {
-    return pastArr.length > 0 ? pastArr : null;
-  }
-  static getCleanStats(stats) {
-    let newStats = [];
-    stats.forEach((stat) => {
-      newStats.push({
-        num_stat: stat["base_stat"],
-        name_stat: stat["stat"]["name"],
-      });
-    });
-    return newStats;
-  }
-  static getCleanTypes(types) {
-    let newType = [];
-    if (Array.isArray(types)) {
-      types.forEach((type) => {
-        newType.push(type["type"]["name"]);
-      });
-    } else {
-      newType.push(types["type"]["name"]);
-    }
-    return newType;
-  }
-  static getMoveList(moves) {
-    let movesList = [];
-    moves.map((move) => {
-      if (movesList.length < 6) movesList.push(move["move"]["name"]);
-    });
-    return movesList;
-  }
-  static getAbillities(abilities) {
-    let abilitiesList = [];
-    if (Array.isArray(abilities)) {
-      abilities.forEach((ability) => {
-        abilitiesList.push(ability.ability.name);
-      });
-    } else {
-      abilitiesList.push(abilities ? abilities.ability.name : null);
-    }
-    return abilitiesList;
-  }
-  getStringStats() {
-    let result = "";
-    this.stats.forEach((stat) => {
-      result += `${stat.num_stat}-${stat.name_stat} `;
-    });
-    return result;
-  }
-  getStringTypes() {
-    let result = "";
-    this.type.forEach((type_name) => {
-      result += result == "" ? type_name : `, ${type_name}`;
-    });
-    return result;
-  }
-  getStringAbilities() {
-    let result = "";
-    this.abilities.forEach((ability) => {
-      result += result == "" ? ability : `, ${ability}`;
-    });
-    return result;
-  }
-  getStringMoves() {
-    let result = "";
-    this.moves.forEach((move) => {
-      result += result == "" ? move : `, ${move}`;
-    });
-    return result;
-  }
-}
-async function getPokemonById(id) {
-  try {
-    return await fetch(`${pokeAPI}${id}`).then((res) => res.json());
-  } catch (error) {
-    console.log(error);
-  }
-}
 let displayPoke = [];
+function loadPokeWikiPage() {
+  document.getElementById("change_main").innerHTML = `
+  <div class="container-fluid my-5 text-center">
+  <h1 id="headline_wiki"><i style="transform: translate(50%, -90%);" class="fas fa-search wiki_icon"></i>PokEWiki Center<i style="transform: translate(-50%, 80%);" class="fas fa-globe-americas wiki_icon"></i></h1>
+  <h1 class="display-4 text-white">Here in the PokeWiki you can explore and learn about new pokemons</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-6 d-flex p-4 justify-content-end">
+          <img id="fireImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/fire-poke.png" alt="">
+      </div>
+      <div class="col-6 d-flex p-4 justify-content-start">
+          <img id="grassImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/grass-poke.png" alt="">
+      </div>
+       <div class="col-6 d-flex p-4 justify-content-end">
+          <img id="normalImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/normal-poke.png" alt="">
+      </div>
+      <div class="col-6 d-flex p-4 justify-content-start">
+          <img id="waterImg_con" class="col-10 px-0 img-fluid rounded-8 border border-dark" src="../images/water-poke.png" alt="">
+      </div>
+  </div>
+</div>
+<div id="search_form" class="my-5">
+  <div class="input-group">
+    <div class="form-outline form-white w-75">
+      <input type="search" id="poke_search" class="form-control form-control-lg whiteInput" />
+      <label class="form-label" for="form1">Search</label>
+    </div>
+    <button onclick="searchPokemon()" type="button" class="btn btn-warning btn-lg">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</div>
+<div class="container-fluid my-5">
+  <div class="row" id="pokewiki_con">
+  </div>
+</div>
+  `;
+  displayPoke = [];
+  getPokemonArr(100);
+}
 function getRandomDisplayId(num) {
   let idArr = [];
   for (let i = 0; i < num; i++) {
@@ -124,7 +47,7 @@ function getRandomDisplayId(num) {
   }
   return idArr;
 }
-async function getPokemonArr(num) {
+function getPokemonArr(num) {
   getRandomDisplayId(num).forEach((id) => {
     getPokemonById(id).then((res) => {
       displayPoke.push(Pokemon.switchAPIPokemonToClass(res));
@@ -132,8 +55,6 @@ async function getPokemonArr(num) {
     });
   });
 }
-getPokemonArr(100);
-// "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/485.png"
 function getPokeInfoCard(pokemon) {
   return `
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 mb-3 d-flex align-items-strech">
@@ -143,15 +64,15 @@ function getPokeInfoCard(pokemon) {
         }" class="card-img-top wiki_pokeImg" alt="Fissure in Sandstone"/>
         <div class="card-body">
             <div class="p-2">
-                <h2 id="poke_title">${pokemon.name}</h2>
-                <h4 class="poke_info"><strong>Species</strong>: ${
+                <h2 class="wiki_title">${pokemon.name}</h2>
+                <h4 class="wiki_info"><strong>Species</strong>: ${
                   pokemon.species
                 }</h4>
-                <h4 class="poke_info"><strong>Type</strong>: ${pokemon.getStringTypes()}</h4>
-                <h4 class="poke_info"><strong>Stats</strong>: ${pokemon.getStringStats()}</h4>
-                <h4 class="poke_info"><strong>Abilities</strong>: ${pokemon.getStringAbilities()}</h4>
-                <h4 class="poke_info"><strong>Moves</strong>: ${pokemon.getStringMoves()}</h4>
-                <h4 class="poke_info"><strong>Last Type</strong>: ${
+                <h4 class="wiki_info"><strong>Type</strong>: ${pokemon.getStringTypes()}</h4>
+                <h4 class="wiki_info"><strong>Stats</strong>: ${pokemon.getStringStats()}</h4>
+                <h4 class="wiki_info"><strong>Abilities</strong>: ${pokemon.getStringAbilities()}</h4>
+                <h4 class="wiki_info"><strong>Moves</strong>: ${pokemon.getStringMoves()}</h4>
+                <h4 class="wiki_info"><strong>Last Type</strong>: ${
                   pokemon.pastType ? pokemon.pastType : "none"
                 }</h4>
                 </div>
@@ -160,6 +81,7 @@ function getPokeInfoCard(pokemon) {
 </div>
     `;
 }
+
 function displayPokemonArray(arr) {
   document.getElementById("pokewiki_con").innerHTML = "";
   arr.forEach((pokemon) => {
@@ -167,6 +89,7 @@ function displayPokemonArray(arr) {
       getPokeInfoCard(pokemon);
   });
 }
+
 function searchPokemon() {
   let search = document.getElementById("poke_search").value.toLowerCase();
   let searchArr = displayPoke.filter((poke) =>
@@ -176,6 +99,7 @@ function searchPokemon() {
     ? displayPokemonArray(searchArr)
     : searchPokeInApi(search);
 }
+
 function searchPokeInApi(search) {
   getPokemonById(search).then((res) => {
     if (res) {
@@ -183,6 +107,7 @@ function searchPokeInApi(search) {
     } else displaySearchError();
   });
 }
+
 function displaySearchError() {
   document.getElementById(
     "pokewiki_con"

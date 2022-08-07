@@ -3,118 +3,262 @@ let userCoords;
 let locationCircle;
 let markerArray = [];
 let pokemonSpawn = [];
-const pokeAPI = "https://pokeapi.co/api/v2/pokemon/";
-//new pokemon class
-class Pokemon {
-  constructor(
-    name,
-    front_pic,
-    back_pic,
-    species,
-    pastType,
-    stats,
-    type,
-    moves,
-    abilities
-  ) {
-    this.name = Pokemon.getPokemonNameCaptilise(name);
-    this.front_pic = front_pic;
-    this.back_pic = back_pic;
-    this.species = species;
-    this.pastType = pastType;
-    this.stats = stats;
-    this.type = type;
-    this.moves = moves;
-    this.abilities = abilities;
-  }
-  static getPokemonNameCaptilise(name) {
-    return name[0].toUpperCase() + name.substr(1);
-  }
-  static switchAPIPokemonToClass(pokemon) {
-    return new Pokemon(
-      pokemon.name,
-      pokemon.sprites.other.dream_world.front_default,
-      pokemon.sprites.back_default,
-      pokemon.species.name,
-      Pokemon.CheckPastTypes(pokemon.past_types),
-      Pokemon.getCleanStats(pokemon.stats),
-      Pokemon.getCleanTypes(pokemon.types),
-      Pokemon.getMoveList(pokemon.moves),
-      Pokemon.getAbillities(pokemon.abilities)
-    );
-  }
-  static CheckPastTypes(pastArr) {
-    return pastArr.length > 0 ? pastArr : null;
-  }
-  static getCleanStats(stats) {
-    let newStats = [];
-    stats.forEach((stat) => {
-      newStats.push({
-        num_stat: stat["base_stat"],
-        name_stat: stat["stat"]["name"],
-      });
-    });
-    return newStats;
-  }
-  static getCleanTypes(types) {
-    let newType = [];
-    if (Array.isArray(types)) {
-      types.forEach((type) => {
-        newType.push(type["type"]["name"]);
-      });
-    } else {
-      newType.push(types["type"]["name"]);
-    }
-    return newType;
-  }
-  static getMoveList(moves) {
-    let movesList = [];
-    moves.map((move) => {
-      if (movesList.length < 6) movesList.push(move["move"]["name"]);
-    });
-    return movesList;
-  }
-  static getAbillities(abilities) {
-    let abilitiesList = [];
-    if (Array.isArray(abilities)) {
-      abilities.forEach((ability) => {
-        abilitiesList.push(ability.ability.name);
-      });
-    } else {
-      abilitiesList.push(abilities ? abilities.ability.name : null);
-    }
-    return abilitiesList;
-  }
-  getStringStats() {
-    let result = "";
-    this.stats.forEach((stat) => {
-      result += `${stat.num_stat}-${stat.name_stat} `;
-    });
-    return result;
-  }
-  getStringTypes() {
-    let result = "";
-    this.type.forEach((type_name) => {
-      result += result == "" ? type_name : `, ${type_name}`;
-    });
-    return result;
-  }
-  getStringAbilities() {
-    let result = "";
-    this.abilities.forEach((ability) => {
-      result += result == "" ? ability : `, ${ability}`;
-    });
-    return result;
-  }
-  getStringMoves() {
-    let result = "";
-    this.moves.forEach((move) => {
-      result += result == "" ? move : `, ${move}`;
-    });
-    return result;
+function loadPhase1Pages(page, e) {
+  e.preventDefault();
+  switch (page) {
+    case "map":
+      loadMapPage();
+      break;
+    case "inventory":
+      loadInventoryPage();
+      break;
+    case "battle":
+      loadBattlePage();
+      break;
+    case "pokewiki":
+      loadPokeWikiPage();
+      break;
+    case "shop":
+      loadShopPage();
+      break;
+    case "anime":
+      loadAnimePage();
+      break;
   }
 }
+function loadMapPage() {
+  document.getElementById("change_main").innerHTML = `
+  <div id="txt_header" class="container-fluid">
+  <h1 id="above_headline">OG Presents</h1>
+  <h1 id="game_headline">Pokemon-GO</h1>
+  <h1 id="sub_headline">Game Center</h1>
+</div>
+<div class="container my-5">
+  <h1 class="display-3 text-light text-center">In the Game center you can</h1>
+</div>
+<div class="container-fluid my-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-3 mb-5 mx-5">
+      <div class="bg-image picture_card shadow-5-strong">
+        <img
+          src="https://wallpaper.dog/large/5576460.jpg"
+          class="img-fluid"
+          alt="Sample"
+        />
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+          <div
+            class="d-flex p-5 text-center justify-content-center align-items-center h-100"
+          >
+            <h1 class="card_txt">Explore The Map</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 mb-5 mx-5">
+      <div class="bg-image picture_card">
+        <img
+          src="https://wallpaperaccess.com/full/109332.jpg"
+          class="img-fluid "
+          alt="Sample"
+        />
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+          <div
+            class="d-flex p-5 text-center justify-content-center align-items-center h-100"
+          >
+            <h1 class="card_txt">Catch All The Pokemons</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3 mb-5  mx-5">
+      <div class="bg-image">
+        <img
+          src="https://img.wallpapersafari.com/desktop/1920/1080/90/89/UWq59F.jpg"
+          class="img-fluid"
+          alt="Sample"
+        />
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+          <div
+            class="d-flex p-5 text-center  justify-content-center align-items-center h-100"
+          >
+            <h1 class="card_txt">Win Battles &Get Prizes</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5 d-flex justify-content-center">
+  <h1 class="guide_headline" class="my-5">Game Tutorial</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-xl-6 my-5 d-flex justify-content-center">
+      <div class="card mb-3 guide_card" style="max-width: 90%">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+              src="../images/guide1.jpeg"
+              alt=""
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body ">
+              <h1 class="card-title display-2">Step 1</h1>
+              <h2 class="card-text">
+                Press the search button to search nearby Pokemons.Once you press the button the next scan will be available after 10 minutes.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6 my-5 d-flex justify-content-center">
+      <div class="card mb-3 guide_card " style="max-width: 90%">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+              src="../images/guide2.jpeg"
+              alt=""
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h1 class="card-title display-2">Step 2</h1>
+              <h2 class="card-text">
+                The markers that apeared on the screen are nearby pokemons, press on them to see the information. 
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6 my-5 d-flex justify-content-center">
+      <div class="card mb-3 guide_card" style="max-width: 90%">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+              src="../images/guide3.jpeg"
+              alt=""
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h1 class="card-title display-2">Step 3</h1>
+              <h2 class="card-text">
+                Press on the button on the bottom of the information card to try and capture the pokemon.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-6 my-5 d-flex justify-content-center">
+      <div class="card mb-3 guide_card" style="max-width: 90%">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+              src="../images/guide4.jpeg"
+              alt=""
+              class="img-fluid rounded-start"
+            />
+          </div>
+          <div class="col-md-6">
+            <div class="card-body">
+              <h1 class="card-title display-2">Step 4</h1>
+              <h2 class="card-text">
+               Now try to catch the pokemon, but notice that you only have 3 tries, and you can always pass on the pokemon and return to the map.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5  d-flex justify-content-center">
+  <h1 class="guide_headline" class="my-5">Lets Get Started</h1>
+</div>
+<div id="covermap_con" class="container-fluid d-flex justify-content-center my-5">
+  <div id="change_mapscene">
+    <div id="map_scene" class="container-fluid">
+      <div id="map_capture_div" class="row justify-content-center">
+        <div id="map" class="col-10"></div>
+      </div>
+    </div>
+    <div class="container mt-5 position-relative" id="battle_con">
+      <div id="overlay">
+        <div
+          id="capture_con"
+          class="d-flex justify-content-center align-items-center"
+        >
+          <img
+            id="capture_pokeball"
+            src="../images/final_closeball.png"
+            alt=""
+          />
+          <div id="pokemon_capturedCon">
+            <img id="pokemon_capturedImg" src="/images/fail.png" alt="" />
+          </div>
+          <div id="continue_div" class="p-4">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="continueScene()"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="spawn_div" class="position-absolute top-50 start-50">
+        <img id="spawn_poke" src="" alt="" />
+      </div>
+      <div
+        id="text_box_con"
+        class="position-absolute bottom-0 start-0 p-4 d-flex flex-column justify-content-center"
+        style="z-index:1;"
+      >
+        <h2 id="text_box" class="p-2"></h2>
+        <div class="p-2">
+          <h5 id="capture_btn" onclick="throwAnimation()" class="press">
+            <i class="arrow_right"></i> Capture
+          </h5>
+          <h5 onclick="returnToMapScene()" class="press">
+            <i class="arrow_right"></i> Pass
+          </h5>
+        </div>
+      </div>
+      <div
+        class="position-absolute end-0 bottom-0 p-4"
+      ><div class="d-flex justify-content-end align-items-center">
+        <img id="pokemon_ball_img" src="../images/pokemon_ball.png" alt="" />
+        <h1 id="tries"></h1>
+      </div>
+      </div>
+      <img
+        class="position-absolute bottom-0 end-0"
+        id="catch_pokemon_ball"
+        src="../images/pokemon_ball.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+<div class="container my-5  d-flex flex-column align-items-center justify-content-center">
+  <h1 class="guide_headline" class="my-5">Whats Next?</h1>
+  <h1 class="display-1 text-white my-5 text-center">you can see all the pokemon you have captured in the Inventory page go and explore more</h1>
 
+</div>
+  `;
+}
+
+window.onload = () => {
+  loadMapPage();
+};
 //Start page by search for user location
 function startMap() {
   if (navigator.geolocation) {
@@ -202,15 +346,6 @@ function getClassPokemonArray() {
     pokeArr.push(Pokemon.switchAPIPokemonToClass(pokemon));
   });
   pokemonSpawn = pokeArr;
-}
-
-//API call to poke api
-async function getPokemonById(id) {
-  try {
-    return await fetch(`${pokeAPI}${id}`).then((res) => res.json());
-  } catch (error) {
-    console.log(error);
-  }
 }
 
 //create Random length of pokemon array

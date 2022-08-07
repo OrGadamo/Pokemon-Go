@@ -1,7 +1,7 @@
 let spawnPoke;
 let tries;
 let capture;
-let capturedPokemon = [];
+const capturedPokemon = [];
 function mainCaptureScene(pokemon) {
   document.getElementById("map_scene").style.display = "none";
   document.getElementById("battle_con").style.display = "block";

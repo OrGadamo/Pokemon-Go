@@ -1,0 +1,124 @@
+/* general css */
+/* body {
+  min-height: 100%;
+  background: url(https://images7.alphacoders.com/592/592678.jpg) #121212;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+#toggle_btn {
+  font-size: 3vh;
+}
+.pokenav_link {
+  color: white;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  font-size: 3vh;
+}
+.pokenav_link:hover {
+  color: #f07900;
+}
+#myBrand {
+  font-size: 3vh;
+}
+header {
+  margin-bottom: 5vw;
+}
+main {
+  min-height: 80vh;
+} */
+/* battle css */
+#headline_battle {
+  font-family: "Mochiy Pop One", sans-serif;
+  color: white;
+  font-size: calc(10px + 5vw);
+  margin-bottom: 5vw;
+}
+#battle_icon {
+  color: #f07900;
+  transform: translate(-50%, 70%);
+}
+.gif_con {
+  width: 70%;
+}
+#fire_leader {
+  background: url(../images/backgrounds/BurningOrange.jpg);
+  position: relative;
+}
+#grass_leader {
+  background: url(../images/backgrounds/Quepal.jpg);
+  position: relative;
+}
+#water_leader {
+  background: url(../images/backgrounds/BlueSkies.jpg);
+  position: relative;
+}
+.gym_badge {
+  position: absolute;
+  width: 20%;
+  top: 0;
+  right: 0;
+}
+.battle_btn {
+  position: absolute;
+  width: 40%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+#arena {
+  height: 100vh;
+  background-image: url("https://cdna.artstation.com/p/assets/images/images/031/147/532/large/justin-williams-justin-williams-arena-suicune5-muted7.jpg?1602740353");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.pokeImg_battle {
+  width: 100%;
+}
+.health-bar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  background: #ddd;
+  border-radius: 5px;
+  position: relative;
+}
+.bar {
+  background: #13890c;
+  width: 100%;
+  height: 30px;
+  position: relative;
+
+  transition: width 0.5s linear;
+}
+.hit {
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  transition: width 0.5s linear;
+}
+#battle_box {
+  width: 60%;
+  transform: translate(-50%, -50%);
+  background-color: #121212b5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#battle_txt {
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+.arrow_right {
+  border: solid white;
+  border-width: 0 8px 8px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+}

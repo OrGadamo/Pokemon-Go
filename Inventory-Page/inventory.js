@@ -1,11 +1,26 @@
-let capturedPokemon = [];
-window.onload = () => {
+function loadInventoryPage() {
+  document.getElementById("change_main").innerHTML = `
+  <div class="container-fluid mb-5 d-flex justify-content-center">
+  <h1 id="headline_inven">Inventory</h1>
+</div>
+<div class="container-fluid mt-5 d-flex justify-content-center">
+  <h1 class="display-2 text-white">
+    Here you can see all your Pokemons
+  </h1>
+</div>
+<div class="container-fluid d-flex justify-content-center" id="inven_con">
+</div>
+<div class="container-fluid d-flex justify-content-center mb-5">
+  <div class="row inven_poke stage_con text-white" id="poke_div">
+  </div>
+</div>
+  `;
   if (capturedPokemon.length > 0) {
     displayStage();
     captureDisplay(0);
     displayInventory();
   } else printErrorMessage();
-};
+}
 function displayCapturedPokemon(index) {
   document.getElementById("poke_div").innerHTML += `
     <div onclick="captureDisplay(${index})" class="border border-dark col-6 col-sm-4 col-lg-2 d-flex justify-content-center align-items-center">
