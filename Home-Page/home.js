@@ -233,18 +233,9 @@ function loadHomePage() {
   
   `;
 }
-class User {
-  constructor(_fName, _lName, _email, _password) {
-    this.firstName = _fName;
-    this.lastName = _lName;
-    this.email = _email;
-    this.password = _password;
-  }
-}
 //global user
 let user;
-function openSignUp(e) {
-  if (e) e.preventDefault();
+function openSignUp() {
   document.getElementById("overlay").style.display = "block";
 }
 function closeSignUp() {
@@ -265,15 +256,17 @@ function submitForm(e) {
   changeToStartButton();
 }
 function changeToStartButton() {
-  let btnArray = document.getElementsByClassName("start_btn");
-  for (btn of btnArray) {
-    btn.innerText = "Start Game";
-    btn.onclick = StartGamePhase();
-  }
   document.getElementById(
     "login_btncol"
-  ).innerHTML = `<h1 class="mx-md-5">Hello, ${user.firstName} ${user.lastName}</h1><button type="button" onclick="startGamePhase()" class="nav_btn btn btn-lg btn-warning me-3">Start Game</button>`;
+  ).innerHTML = `<h1 class="mx-md-5">Hello, ${user.firstName} ${user.lastName}</h1><button type="button" class="nav_btn btn btn-lg btn-warning me-3 start_btn">Start Game</button>`;
+  let btnArray = document.getElementsByClassName("start_btn");
+  for (let btn of btnArray) {
+    btn.innerText = "Start Game";
+    btn.onclick = () => {
+      StartGamePhase();
+    };
+  }
 }
 function StartGamePhase() {
-  console.log("change phase");
+  location.href = "search-map/PokeMap.html";
 }

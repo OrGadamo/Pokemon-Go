@@ -272,7 +272,7 @@ function displayCapturedPokemons() {
       document.getElementById("choose_poke").innerHTML += `
     <div class="col-4 col-md-2">
     <div class="card">
-      <img onclick="startBattle(${index})" src="${poke.front_pic}" class="card-img-top" alt="Fissure in Sandstone"/>
+      <img onclick="startBattle(${index})" src="${poke.front_pic}" class="card-img-top option_displayimg" alt="Fissure in Sandstone"/>
     </div>
   </div>
     `;
