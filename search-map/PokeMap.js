@@ -201,7 +201,7 @@ function loadMapPage() {
             alt=""
           />
           <div id="pokemon_capturedCon">
-            <img id="pokemon_capturedImg" src="/images/fail.png" alt="" />
+            <img id="pokemon_capturedImg" src="../images/fail.png" alt="" />
           </div>
           <div id="continue_div" class="p-4">
             <button
@@ -261,11 +261,13 @@ window.onload = () => {
 };
 //Start page by search for user location
 function startMap() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(initMap);
-  } else {
-    console.log("error");
-  }
+  setTimeout(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(initMap);
+    } else {
+      console.log("error");
+    }
+  }, 2000);
 }
 
 //get location and initialize map,user marker
