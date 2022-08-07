@@ -1,16 +1,7 @@
 let gymPokemon;
 let userPokemon;
 let gymType;
-// window.onload = () => {
-//   getPokemonById(1).then((res) => {
-//     userPokemon = Pokemon.switchAPIPokemonToClass(res);
-//   });
-//   getPokemonById(3).then((res) => {
-//     gymPokemon = Pokemon.switchAPIPokemonToClass(res);
-//     displayArena();
-//     displayAttackOption();
-//   });
-// };
+const userBadge = [];
 function loadBattlePage() {
   document.getElementById("change_main").innerHTML = `
   <div class="container-fluid my-5 text-center">
@@ -24,34 +15,44 @@ function loadBattlePage() {
 <img class="w-50" src="https://i.makeagif.com/media/10-14-2016/9YPJq4.gif" alt="">
 </div>
 <div id="arena_con" class="my-3">
+</div>
+  `;
+  displayGymLeaders();
+}
+function displayGymLeaders(water = true, fire = true, grass = true) {
+  document.getElementById("arena_con").innerHTML = `
   <h1 class="display-1 text-center text-white my-5">Choose Gym Leader</h1>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <div class="col-12 col-md-6 col-lg-4 mb-3 d-flex align-items-strech">
+      <div class="col-12 col-md-6 col-lg-4 mb-3 d-${
+        water ? "flex" : "none"
+      } align-items-strech">
         <div id="water_leader" class="card">
           <img class="gym_badge" src="../images/water_badge.png" alt="">
           <img src="../images/leader1.png" class="card-img-top" alt="Fissure in Sandstone"/>
           <button onclick="pickUserPokemon('water')" class="btn btn-warning battle_btn btn-lg mb-5">Challenge</button>
           </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-4  mb-3 d-flex align-items-strech">
+      <div  class="col-12 col-md-6 col-lg-4  mb-3 d-${
+        grass ? "flex" : "none"
+      } align-items-strech">
         <div id="grass_leader" class="card">
           <img class="gym_badge" src="../images/grass_badge.png" alt="">
           <img src="../images/leader2.png" class="card-img-top" alt="Fissure in Sandstone"/>
-          <button onclick="pickUserPokemon('water')" class="btn btn-warning battle_btn btn-lg mb-5">Challenge</button>
+          <button onclick="pickUserPokemon('grass')" class="btn btn-warning battle_btn btn-lg mb-5">Challenge</button>
           </div>
       </div>
-      <div onclick="pickUserPokemon('water')" class="col-12 col-md-6 col-lg-4 mb-3 d-flex align-items-strech">
+      <div class="col-12 col-md-6 col-lg-4 mb-3 d-${
+        fire ? "flex" : "none"
+      } align-items-strech">
         <div id="fire_leader" class="card">
           <img class="gym_badge" src="../images/fire_badge.png" alt="">
           <img src="../images/leader3.png" class="card-img-top" alt="Fissure in Sandstone"/>
-          <button class="btn btn-warning battle_btn btn-lg mb-5">Challenge</button>
+          <button onclick="pickUserPokemon('fire')" class="btn btn-warning battle_btn btn-lg mb-5">Challenge</button>
           </div>
       </div>
       </div>
     </div>
-</div>
-</div>
   `;
 }
 function changeHP(dmg, poke) {
@@ -284,5 +285,60 @@ function displayCapturedPokemons() {
   }
 }
 function endGame(winner) {
-  console.log(winner + " won");
+  switch (winner) {
+    case "gym":
+      displayUserLose();
+      break;
+    case "user":
+      userBadge.push(gymType);
+      displayUserWin();
+      break;
+  }
+}
+function displayUserWin() {
+  document.getElementById("arena_con").innerHTML = `
+  <div class="container-fluid d-flex flex-column align-items-cecnter">
+  <div class="row d-flex justify-content-center">
+  <img class="col-4 img-fluid" src="../images/win_gif.gif" alt=""/>
+  </div>
+  <div class="row d-flex justify-content-center">
+  <img class="col-4 img-fluid" src="../images/${
+    userBadge[userBadge.length - 1]
+  }_badge.png" alt=""/>
+  </div>
+  <div class="row d-flex justify-content-center">
+  <button onclick="continueBattle('${
+    userBadge[userBadge.length - 1]
+  }')" class="btn btn-warning btn-lg col-4">Continue</button>
+  </div>
+  </div>
+  `;
+}
+function displayUserLose() {
+  document.getElementById("arena_con").innerHTML = `
+  <div class="container-fluid d-flex flex-column align-items-cecnter">
+  <div class="row d-flex justify-content-center">
+  <img class="col-4 img-fluid" src="../images/lose_img.png" alt=""/>
+  </div>
+  <div class="row d-flex justify-content-center">
+  <button onclick="continueBattle()" class="btn btn-warning btn-lg col-4">Continue</button>
+  </div>
+  </div>
+  `;
+}
+function continueBattle(badge = false) {
+  if (!badge) displayGymLeaders();
+  else {
+    switch (badge) {
+      case "water":
+        displayGymLeaders(false);
+        break;
+      case "fire":
+        displayGymLeaders(true, false);
+        break;
+      case "grass":
+        displayGymLeaders(true, true, false);
+        break;
+    }
+  }
 }

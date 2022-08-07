@@ -57,7 +57,7 @@ function getPokemonArr(num) {
 }
 function getPokeInfoCard(pokemon) {
   return `
-    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 mb-3 d-flex align-items-strech">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3 d-flex align-items-strech">
     <div class="card">
         <img src="${
           pokemon.front_pic

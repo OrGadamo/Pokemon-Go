@@ -267,7 +267,7 @@ function startMap() {
     } else {
       console.log("error");
     }
-  }, 2000);
+  }, 5000);
 }
 
 //get location and initialize map,user marker
